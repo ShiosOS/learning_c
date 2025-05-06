@@ -52,6 +52,23 @@ bool arraylist_resize(ArrayList *list, int new_capacity)
 	return 1;
 };
 
+// TODO: Need to determine behavior here
+// Do I want to resize the array every time an element is removed?
+// If so i need to remove -> resize -> adjust pointer -> loop
+
+void arraylist_remove(ArrayList *list, int item)
+{
+	if (!list) return;
+
+	for (int i = 0; i < list->size; i++)
+	{
+		if (list->data[i] == item)
+		{
+			list->data[i] = 0;
+		}
+	}
+};
+
 bool arraylist_push(ArrayList *list, int item)
 {
 	if (!list) return 0;
